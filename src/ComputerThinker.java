@@ -4,8 +4,9 @@ public class ComputerThinker implements IThinker
 {
 	private int secretNumber;
 
-	public void yourTurn()
-	{}
+	public void yourTurn() {
+
+	}
 
 	public String getName()
 	{
