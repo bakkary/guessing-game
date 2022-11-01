@@ -1,8 +1,5 @@
-import java.util.Random;
-
 public class ComputerGuesser implements IGuesser
 {
-	Random r = new Random();
 	private int min;
 	private int max;
 
@@ -19,7 +16,8 @@ public class ComputerGuesser implements IGuesser
 		this.max = max;
 	}
 
-	public int makeGuess() {
+	public int makeGuess()
+	{
 		return (min + max) / 2;
 	}
 
@@ -28,10 +26,10 @@ public class ComputerGuesser implements IGuesser
 		switch(answer)
 		{
 			case TOO_LOW:
-				min =r.nextInt ((min + max) / 2) + 1;
+				min = ((min + max) / 2) + 1;
 				break;
 			case TOO_HIGH:
-				max =r.nextInt ((min + max) / 2) -1;
+				max = ((min + max) / 2) -1;
 				break;
 			case CORRECT:
 				break;

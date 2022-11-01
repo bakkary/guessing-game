@@ -3,9 +3,10 @@ import java.util.Random;
 public class ComputerGuesserRandom {
     public class ComputerGuesser implements IGuesser
     {
-        Random r = new Random();
+        private final static Random rnd = new Random();
         private int min;
         private int max;
+        private  int lastGuess;
 
         public void yourTurn() {}
 
@@ -21,7 +22,9 @@ public class ComputerGuesserRandom {
         }
 
         public int makeGuess() {
-            return (min + max) / 2;
+            int rangeLength = max - min + 1;
+            int r = rnd.nextInt(rangeLength);
+            return lastGuess;
         }
 
         public void guessFeedback(Answer answer)
@@ -30,10 +33,10 @@ public class ComputerGuesserRandom {
             {
                 case TOO_LOW:
 
-                    min = ((min + max) / 2) + 1;
+                    min = (lastGuess) + 1;
                     break;
                 case TOO_HIGH:
-                    max = ((min + max / 2 )) -1;
+                    max = (lastGuess) -1;
                     break;
                 case CORRECT:
                     break;
